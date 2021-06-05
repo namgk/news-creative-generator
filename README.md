@@ -1,4 +1,5 @@
-# This library creates a news creative based on a news title and a background image, and with a nice black-white gradient from bottom to the top. A sample is like bellow:
+# What is this?
+This library creates a news creative based on a news title and a background image, and with a nice black-white gradient from bottom to the top. A sample is like bellow:
 
 ![bigpizza](https://i.imgur.com/l0ai7PO.jpeg)
 
