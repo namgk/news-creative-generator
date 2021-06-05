@@ -8,7 +8,7 @@ describe('generateNewsCreative', () => {
     const link = "https://curiocity.com/this-gta-spot-serves-insanely-big-pizza-slices-youve-got-to-see-to-believe/";
     const text = "This GTA spot serves insanely big pizza slices you've got to see to believe, blaeoio awejfoiajwe oawej ofijawef";
 
-    const image = await generateNewsCreative(logoUrl, enclosureUrl, "", text);
+    const image = await generateNewsCreative(enclosureUrl, text);
     image.write("/Users/nhong/Downloads/bigpizza.jpeg")
   });
 });

@@ -8,17 +8,19 @@ const fontPath = Path.join(
   'assets/sans_white.fnt'
 );
 const gradientPath = Path.join(dir, 'assets/tmp.png');
+const curiocityPath = Path.join(dir, 'assets/curiocity.png');
+
+const width = 1920;
+const height = 1080;
 
 export const generateNewsCreative = async (
-  logoUrl : string, 
   enclosureUrl: string, 
-  link: string, 
   text: string,
 ) => {
 
   const font = await Jimp.loadFont(fontPath);
-  const gradient = (await Jimp.read(gradientPath)).resize(1920, 1080);
-  const logo = (await Jimp.read(logoUrl)).scaleToFit(350, 140);
+  const gradient = (await Jimp.read(gradientPath)).resize(width, height);
+  const logo = (await Jimp.read(curiocityPath)).resize(345, 73);
   const enclosure = await Jimp.read(enclosureUrl);
 
   let effectiveText = text;
@@ -26,7 +28,7 @@ export const generateNewsCreative = async (
     effectiveText = text.substring(0, 74) + "...";
   }
 
-  enclosure.resize(1920, 1080)
+  enclosure.resize(width, height)
   .composite(gradient, 0, 0)
   .composite(logo, 120, 120)
   .print(font, 120, 270, effectiveText, 1400);
