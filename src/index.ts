@@ -1,6 +1,5 @@
 import Jimp from 'jimp/es';
 import Path from 'path';
-import { Font } from '@jimp/plugin-print';
 
 const dir = process.env.DIRNAME || `${__dirname}/../`;
 const fontPath = Path.join(
@@ -16,7 +15,7 @@ const height = 1080;
 export const generateNewsCreative = async (
   enclosureUrl: string, 
   text: string,
-) => {
+): Promise<Jimp> => {
 
   const font = await Jimp.loadFont(fontPath);
   const gradient = (await Jimp.read(gradientPath)).resize(width, height);
