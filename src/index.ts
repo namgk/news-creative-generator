@@ -4,10 +4,10 @@ import Path from 'path';
 const dir = process.env.DIRNAME || `${__dirname}/../`;
 const fontPath = Path.join(
   dir,
-  'assets/sans_white.fnt'
+  'assets/fonts/sans_white/sans_white.fnt'
 );
-const gradientPath = Path.join(dir, 'assets/tmp.png');
-const curiocityPath = Path.join(dir, 'assets/curiocity.png');
+const gradientPath = Path.join(dir, 'assets/gradient.png');
+const curiocityPath = Path.join(dir, 'assets/logos/curiocity.png');
 
 const width = 1920;
 const height = 1080;
@@ -30,7 +30,8 @@ export const generateNewsCreative = async (
   enclosure.resize(width, height)
   .composite(gradient, 0, 0)
   .composite(logo, 120, 120)
-  .print(font, 120, 270, effectiveText, 1400);
+  .print(font, 120, 270, effectiveText, 1400)
+  .quality(50);
 
   return enclosure;
 }
